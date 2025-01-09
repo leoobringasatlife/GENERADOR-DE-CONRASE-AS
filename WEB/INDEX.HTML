@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Contraseñas</title>
+    <!-- Enlace al archivo CSS externo -->
+    <link href="styles.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>GENERADOR de CONTRASEÑA</h1>
+        <p>HACÉ CLIC EN EL BOTÓN PARA GENERAR LA CONTRASEÑA ALEATORIA</p>
+        <div class="password-output" id="passwordOutput">...</div>
+        <button onclick="generarContraseña()">Generar Contraseña</button>
+    </div>
+
+    <script>
+        function generarContraseña(longitud = 8) {
+            const caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let contraseña = '';
+            for (let i = 0; i < longitud; i++) {
+                const indiceAleatorio = Math.floor(Math.random() * caracteres.length);
+                contraseña += caracteres[indiceAleatorio];
+            }
+            document.getElementById('passwordOutput').innerText = contraseña;
+        }
+    </script>
+</body>
+</html>
